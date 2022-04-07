@@ -1,0 +1,333 @@
+@use "sass:math";
+@import "../../../Common.scss";
+
+.catalogHeader {
+	position: relative;
+	background: $mainDarkColor;
+	color: #fff;
+	&__container {
+		box-sizing: border-box;
+		max-width: rem(1590);
+		padding: 0 rem(15);
+		margin: 0 auto;
+		//
+	}
+
+	&__menu {
+	}
+}
+
+.menuCatalog {
+	@media (max-width: $tablet) {
+		position: fixed;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		z-index: 6;
+		background: $mainDarkColor;
+		padding: rem(25) rem(15) rem(50) rem(15);
+		transition: all 0.3s ease 0s;
+		&.catalogOpen {
+			left: 0;
+		}
+	}
+	&__list {
+		display: flex;
+		column-gap: rem(10);
+		justify-content: space-between;
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			row-gap: rem(25);
+		}
+	}
+	&__item {
+	}
+	&__link {
+		display: flex;
+
+		position: relative;
+		transition: color 0.3s ease 0s;
+		@media (min-width: $tablet) {
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			padding: 0 rem(10);
+			min-height: rem(70); //70
+		}
+		&::after {
+			content: "";
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			bottom: 0;
+			left: rem(10);
+			height: 1px;
+			background-color: $mainOrange;
+			width: calc(100% - rem(20));
+			transition: all 0.3s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $mainOrange;
+				&::after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+		@media (min-width: $tablet) {
+			&.menuLinkActive {
+				color: $mainOrange;
+				&::after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+		@media (max-width: $tablet) {
+			@include adaptiv-value("font-size", 30, 20, 992, 320, 1);
+		}
+	}
+	&__subMenu {
+		width: 100%;
+		left: 0;
+		top: 100%;
+		background-color: $mainDarkColor;
+		.showCatalogMenu & {
+		}
+	}
+	&__back {
+		display: none;
+		@media (max-width: $tablet) {
+			display: inline-flex;
+			align-items: center;
+			@include adaptiv-value("font-size", 30, 20, 992, 320, 1);
+			&:not(last-child) {
+				margin-bottom: em(34.66);
+			}
+		}
+	}
+}
+
+.subMenuCatalog {
+	@media (max-width: $tablet) {
+		position: fixed;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: $mainDarkColor;
+		padding: rem(25) rem(15) rem(50) rem(15);
+		transition: left 0.3s ease 0s;
+		&.subMenuOpen {
+			display: block;
+			left: 0;
+			z-index: 6;
+		}
+	}
+	&__container {
+		box-sizing: border-box;
+		max-width: rem(1590);
+		padding: 0 rem(10);
+		margin: 0 auto;
+		//
+	}
+
+	&__block {
+		display: none;
+		@for $var from 1 to 6 {
+			&_#{$var} {
+				//	justify-content: start;
+				grid-template-columns: repeat($var, minmax(auto, 20rem));
+			}
+		}
+
+		&.subMenuOpened {
+			display: grid;
+			@media (max-width: $tablet) {
+				display: block;
+			}
+		}
+
+		@media (max-width: $tablet) {
+			display: block;
+			position: fixed;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			z-index: 6;
+			height: 100%;
+			overflow: auto;
+			background-color: $mainDarkColor;
+			padding: rem(25) rem(15) rem(50) rem(15);
+			transition: all 0.3s ease 0s;
+
+			&.subMenuOpened {
+				left: 0;
+			}
+		}
+	}
+	&__category {
+		font-size: rem(16);
+		line-height: math.div(20, 16); // 20/16
+
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		@media (min-width: $tablet) {
+			font-weight: 700;
+			padding: rem(30) rem(15) rem(30) 0;
+		}
+		@media (max-width: $tablet) {
+			@include adaptiv-value("font-size", 30, 20, 992, 320, 1);
+			&:not(:last-child) {
+				margin-bottom: em(25);
+			}
+		}
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 20px; // 20
+		padding: rem(30) rem(15) rem(30) 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+	&__item {
+	}
+	&__link {
+		font-size: rem(16);
+		line-height: math.div(20, 16); // 20/16
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		@media (max-width: $tablet) {
+		}
+	}
+
+	&__linkCategory {
+		@media (max-width: $tablet) {
+			@include adaptiv-value("font-size", 30, 20, 992, 320);
+		}
+	}
+	&__footer {
+		padding: rem(30) rem(15) rem(30) 0;
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+	&__all {
+		font-size: rem(16);
+		color: $mainOrange;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	&__back {
+		display: none;
+
+		@media (max-width: $tablet) {
+			display: inline-flex;
+			align-items: center;
+			@include adaptiv-value("font-size", 30, 20, 992, 320, 1);
+			&:not(last-child) {
+				margin-bottom: em(34.66);
+			}
+		}
+	}
+}
+.backButton {
+	&__icon {
+		margin: 0px em(10) 0px 0px;
+		display: flex;
+		@include adaptiv-value("height", 30, 20, 992, 320, 1);
+		@include adaptiv-value("width", 30, 20, 992, 320, 1);
+	}
+	&__body {
+		display: flex;
+	}
+}
+.arrowBottom {
+	@media (max-width: $tablet) {
+		display: flex;
+		width: 100%;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
+	&__icon {
+		display: none;
+		@media (max-width: $tablet) {
+			flex: 0 0 16px;
+			transform: rotate(-90deg) translate(0, rem(-2));
+			display: block;
+		}
+	}
+	&__body {
+	}
+}
+
+.bodyHeader {
+	&__search {
+		flex: 1 1 auto;
+
+		@media (min-width: $tablet) {
+			padding-right: rem(20);
+		}
+		@media (max-width: $mobileSmall) {
+			background-color: #000;
+			padding: rem(20);
+		}
+		@media (min-width: $mobileSmall) {
+			@include adaptiv-value("padding-left", 158, 20, 1620, 1250, 1);
+		}
+	}
+}
+
+.searchHeader {
+	height: rem(41);
+	border-radius: rem(3);
+	background-color: rgba(7, 7, 7, 0.03);
+	position: relative;
+	border: 1px solid rgba(4, 4, 4, 0.5);
+	@media (min-width: $tablet) {
+		max-width: rem(377);
+	}
+	@media (max-width: $mobileSmall) {
+		background-color: #fff;
+	}
+
+	&__button {
+		position: absolute;
+		background-color: transparent;
+		height: rem(41);
+		width: rem(41);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		top: 0;
+		left: rem(8);
+	}
+	&__input {
+		width: 100%;
+		background-color: transparent;
+		border-radius: rem(3);
+		height: rem(41);
+		padding: 0px rem(20) 0px rem(50);
+		color: $mainColor;
+		&::placeholder {
+			color: rgba(0, 0, 0, 0.5);
+		}
+	}
+}

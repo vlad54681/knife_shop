@@ -1,0 +1,39 @@
+@import "./nullstyles.css";
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,600,700&display=swap");
+@import "./Common.scss";
+@import "./Components/Home/Home.scss";
+@import "./iconsfont.css";
+body {
+	font-weight: 500;
+	font-family: Montserrat;
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+	}
+}
+.wrapper {
+	background: $mainColor;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	.loaded & {
+	}
+	> main {
+		flex: 1 1 auto;
+	}
+	> * {
+		min-width: 0;
+	}
+}
+
+.page {
+	&_home {
+	}
+	&__main-block {
+	}
+	&__catalog-cards {
+	}
+	&__products-slider {
+	}
+}
