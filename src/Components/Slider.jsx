@@ -86,7 +86,7 @@ const Slider = () => {
 			</div>
 
 			<div className="main-block__controll controll-main-block">
-				<div className="controll-main-block__dotts">
+				<div className="controll-main-block__dotts dotts">
 
 				</div>
 				<div className="controll-main-block__fraction fraction-controll">

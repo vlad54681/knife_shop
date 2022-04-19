@@ -16,6 +16,7 @@ import { useState } from "react";
 import Slider from "../Slider";
 import "../../iconsfont.css"
 import ProductSlider from "./ProductSlider/ProductSlider";
+import NewProducts from "./NewProducts/NewProducts";
 
 
 
@@ -24,6 +25,9 @@ const Home = () => {
 	const [isTip2Hovered, setIsTip2Hovered] = useState(false);
 	const [isTip3Hovered, setIsTip3Hovered] = useState(false);
 
+	let ratingItemsElement = [...Array(5)].map((item, index) =>
+		<input key={`${item}${index}`} type="radio" className="rating__item" name="rating" value={item} />
+	)
 
 
 	return <main className="page page_home">
@@ -243,9 +247,27 @@ const Home = () => {
 				</div>
 			</div>
 		</section>
-
-		<ProductSlider title={"Хиты продаж"} />
-
+		<section className="page__hits-products hits-products">
+			<ProductSlider title={"Хиты продаж"} subtitle={"Перейти в каталог"} rating={ratingItemsElement} />
+		</section>
+		<section className="page__new-products new-products">
+			<NewProducts title={"Новинки"} rating={ratingItemsElement} />
+		</section>
+		<section className="page__sale-products sale-products sale-products_no-bottom">
+			<ProductSlider title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
+		</section>
+		<section className="page__sale-products sale-products">
+			<ProductSlider title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
+		</section>
+		<section className="page__new-products new-products new-products_no-top">
+			<NewProducts title={"Новинки"} rating={ratingItemsElement} />
+		</section>
+		<section className="page__sale-products sale-products sale-products_no-bottom">
+			<ProductSlider title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
+		</section>
+		<section className="page__sale-products sale-products">
+			<ProductSlider title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
+		</section>
 	</main>
 }
 

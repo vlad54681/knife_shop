@@ -16,9 +16,8 @@
 		&:not(:last-child) {
 			@include adaptiv-value("margin-bottom", 43, 30);
 		}
-	   	@media (min-width: $tablet) {
+		@media (min-width: $tablet) {
 			grid-template-columns: 1fr prc(635, 1600);
-			
 		}
 	}
 	&__slider {
@@ -51,7 +50,6 @@
 		display: inline-grid;
 		grid-auto-flow: column;
 		gap: rem(15);
-		transform: translate(0px, 10%);
 
 		& .swiper-pagination-bullet {
 			cursor: pointer;
@@ -402,3 +400,173 @@
 }
 
 //---------------------------------------------------------------------------
+
+.hits-products {
+	@include adaptiv-value("padding-top", 50, 40);
+	@include adaptiv-value("padding-bottom", 120, 40);
+	&_no-top {
+		padding-top: 0;
+	}
+}
+.sale-products {
+	@include adaptiv-value("padding-top", 120, 40);
+	@include adaptiv-value("padding-bottom", 120, 40);
+	&_no-bottom {
+		padding-bottom: 0;
+	}
+}
+
+//---------------------------------------------------------------------------
+.dotts {
+	display: grid;
+	grid-auto-flow: column;
+	//
+	transform: translate(0px, 10%) !important;
+	//
+	justify-content: center;
+	margin: 0 auto;
+	overflow: hidden;
+	& .swiper-pagination-bullet {
+		margin: 0px rem(7.5);
+		cursor: pointer;
+		border-radius: 0;
+		opacity: 1;
+		height: rem(30);
+		width: rem(18);
+		position: relative;
+		background-color: unset;
+		transition: all 0.3s ease 0s;
+		&::after {
+			content: "";
+			height: rem(2);
+			top: 50%;
+			transform: translate(0px, -50%);
+			position: absolute;
+			width: 100%;
+			background-color: #898989;
+		}
+		&::before {
+			content: "";
+			background-color: $mainOrange;
+			width: rem(10);
+			height: rem(10);
+			top: 50%;
+			left: 0;
+			border-radius: 50%;
+			transform: translate(0px, -50%);
+			position: absolute;
+			opacity: 0;
+		}
+		&-active {
+			&::after {
+				background-color: $mainOrange;
+			}
+			&::before {
+				opacity: 1;
+				transition: left 3s linear 0s;
+				left: rem(8);
+			}
+		}
+	}
+}
+//---------------------------------------------------------------------------
+
+.products-new {
+	padding: rem(45) 0px 0px 0px;
+	position: relative;
+	background: url("../../assets/img/new-products/bg.jpg") bottom / cover no-repeat;
+	&::before {
+		background-color: #fff;
+		content: "";
+		height: rem(46);
+		position: absolute;
+		top: -1px;
+		right: 0;
+		width: prc(1030, 1920);
+	}
+	&__inner {
+		@include adaptiv-value("padding-top", 55, 20);
+		@include adaptiv-value("padding-bottom", 55, 20);
+	}
+	&__container {
+		display: grid;
+		row-gap: 40px;
+		@media (min-width: 1080px) {
+			grid-template-columns: rem(400) 1fr;
+			align-items: start;
+		}
+	}
+	&__body {
+		@include adaptiv-value("padding-right", 70, 20, 1630, 922, 1);
+		@media (max-width: 1080px) {
+			padding: 0px;
+		}
+	}
+
+	&__section {
+		position: relative;
+		z-index: 2;
+	}
+	&__title {
+		font-weight: bold;
+		font-size: rem(30);
+		color: #fff;
+		line-height: math.div(46, 30);
+		&:not(:last-child) {
+			margin-bottom: em(30, 30);
+		}
+	}
+	&__text {
+		font-size: rem(18);
+		line-height: math.div(27, 18);
+		letter-spacing: 0.03em;
+		color: rgba(255, 255, 255, 0.7);
+		&:not(:last-child) {
+			@include adaptiv-value("margin-bottom", 60, 20);
+		}
+	}
+	&__link {
+	}
+	&__content {
+		min-width: 0;
+		@media (min-width: $tablet) {
+			padding: rem(37) 0 0 0;
+		}
+	}
+	&__slide {
+	}
+	&__slider {
+	}
+	&__dotts {
+		margin: 0 auto;
+	}
+	&__swiper > div {
+		&:not(:last-child) {
+			@include adaptiv-value("margin-bottom", 50, 20);
+		}
+	}
+}
+// 4.48.00
+//---------------------------------------------------------------------------
+
+.link-arrow {
+	display: inline-flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	color: $mainOrange;
+	font-size: rem(20);
+	font-weight: 600;
+	&::before {
+		content: "";
+		margin: 0px 0px 0px em(20, 20);
+		transform: rotate(-90deg);
+		font-size: rem(8);
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			span {
+				text-decoration: underline;
+			}
+		}
+	}
+}
