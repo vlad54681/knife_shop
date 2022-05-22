@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-import "../Home.scss";
+import "./home.scss";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import { Pagination, Navigation, Autoplay } from "swiper";
-import image from "../../../assets/img/product-card/image.jpg";
+import image from "../../assets/img/product-card/image.jpg";
 export default function NewProducts({ title, rating }) {
 
 

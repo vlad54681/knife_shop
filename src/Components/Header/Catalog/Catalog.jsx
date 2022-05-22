@@ -9,13 +9,21 @@ const Catalog = ({ isColumn1Opened, SetIsColumn1Opened, isColumn2Opened, SetIsCo
 	isColumn5Opened, SetIsColumn5Opened, setIsCatalogMenuOpened, isCatalogMenuOpened,
 	isMenuOpen, toggleColumn, isMenuForMobileSlall }) => {
 
+	const closeCatalog = () => {
+
+		SetIsColumn1Opened(false);
+		SetIsColumn2Opened(false);
+		SetIsColumn3Opened(false);
+		SetIsColumn4Opened(false);
+		SetIsColumn5Opened(false);
+	}
 
 
 	return <>
 		<div className={style.catalogHeader}>
 			<div className={style.catalogHeader__container}>
 				<nav className={isCatalogMenuOpened && isMenuOpen ? style.catalogHeader__menu + " " + style.menuCatalog + " " + style.catalogOpen
-					: style.catalogHeader__menu + " " + style.menuCatalog}>
+					: style.catalogHeader__menu + " " + style.menuCatalog} onBlur={closeCatalog}>
 					<button onClick={() => setIsCatalogMenuOpened(false)} className={style.subMenuCatalog__back + " " + style.backButton}>
 						<span className={style.backButton__icon}>
 							<IcomoonReact iconSet={iconSet} className={style.back} color="#fff" icon="back" />
@@ -263,7 +271,7 @@ const Catalog = ({ isColumn1Opened, SetIsColumn1Opened, isColumn2Opened, SetIsCo
 								</div>
 								<ul className={style.subMenuCatalog__list}>
 									<li className={style.subMenuCatalog__item}>
-										<NavLink to="" className={style.subMenuCatalog__link}>Разделочные ножи</NavLink>
+										<NavLink to="/catalog" className={style.subMenuCatalog__link}>Разделочные ножи</NavLink>
 									</li>
 									<li className={style.subMenuCatalog__item}>
 										<NavLink to="" className={style.subMenuCatalog__link}>Туристические ножи</NavLink>
@@ -317,7 +325,7 @@ const Catalog = ({ isColumn1Opened, SetIsColumn1Opened, isColumn2Opened, SetIsCo
 								</div>
 								<ul className={style.subMenuCatalog__list}>
 									<li className={style.subMenuCatalog__item}>
-										<NavLink to="" className={style.subMenuCatalog__link}>Разделочные ножи</NavLink>
+										<NavLink to="/catalog" className={style.subMenuCatalog__link}>Разделочные ножи</NavLink>
 									</li>
 									<li className={style.subMenuCatalog__item}>
 										<NavLink to="" className={style.subMenuCatalog__link}>Туристические ножи</NavLink>
@@ -456,7 +464,7 @@ const Catalog = ({ isColumn1Opened, SetIsColumn1Opened, isColumn2Opened, SetIsCo
 								</div>
 								<ul className={style.subMenuCatalog__list}>
 									<li className={style.subMenuCatalog__item}>
-										<NavLink to="" className={style.subMenuCatalog__link}>Разделочные ножи</NavLink>
+										<NavLink to="/catalog" className={style.subMenuCatalog__link}>Разделочные ножи</NavLink>
 									</li>
 									<li className={style.subMenuCatalog__item}>
 										<NavLink to="" className={style.subMenuCatalog__link}>Туристические ножи</NavLink>

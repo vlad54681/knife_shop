@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "./Home.scss";
+import "./home.scss";
 import image from "../../assets/img/mainpage/main-block/image.png";
 import icon01 from "../../assets/img/mainpage/main-block/icons/01.svg";
 import icon02 from "../../assets/img/mainpage/main-block/icons/02.svg";
@@ -16,8 +16,11 @@ import { useState } from "react";
 import Slider from "../Slider";
 import "../../iconsfont.css"
 import ProductSlider from "./ProductSlider/ProductSlider";
-import NewProducts from "./NewProducts/NewProducts";
-
+import NewProducts from "./NewProducts";
+import ArticlesModule from "./ArticlesModule";
+import ProductsBlock from "./ProductsBlock";
+import productImage from "../../assets/img/product-card/image.jpg";
+import productImage02 from "../../assets/img/product-card/image-2.jpg";
 
 
 const Home = () => {
@@ -116,7 +119,6 @@ const Home = () => {
 				</div>
 			</div>
 		</section>
-
 		<section className="page__catalog-cards catalog-cards">
 			<div className="catalog-cards__container">
 				<div className="catalog-cards__item item-catalog-cards">
@@ -248,25 +250,34 @@ const Home = () => {
 			</div>
 		</section>
 		<section className="page__hits-products hits-products">
-			<ProductSlider title={"Хиты продаж"} subtitle={"Перейти в каталог"} rating={ratingItemsElement} />
+			<ProductSlider image={productImage} title={"Хиты продаж"} subtitle={"Перейти в каталог"} rating={ratingItemsElement} />
 		</section>
 		<section className="page__new-products new-products">
 			<NewProducts title={"Новинки"} rating={ratingItemsElement} />
 		</section>
 		<section className="page__sale-products sale-products sale-products_no-bottom">
-			<ProductSlider title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
+			<ProductSlider image={productImage} title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
 		</section>
 		<section className="page__sale-products sale-products">
-			<ProductSlider title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
+			<ProductSlider image={productImage} title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
 		</section>
 		<section className="page__new-products new-products new-products_no-top">
 			<NewProducts title={"Новинки"} rating={ratingItemsElement} />
 		</section>
 		<section className="page__sale-products sale-products sale-products_no-bottom">
-			<ProductSlider title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
+			<ProductSlider image={productImage} title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
 		</section>
 		<section className="page__sale-products sale-products">
-			<ProductSlider title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
+			<ProductSlider image={productImage} title={"Акции"} subtitle={"Все акции"} rating={ratingItemsElement} />
+		</section>
+		<section className="page__articles-module articles-module">
+			<ArticlesModule />
+		</section>
+		<section className="page__products-block products-block">
+			<ProductsBlock />
+		</section>
+		<section className="page__hits-products hits-products">
+			<ProductSlider image={productImage02} title={"Фонари"} subtitle={"Перейти в каталог"} rating={ratingItemsElement} />
 		</section>
 	</main>
 }

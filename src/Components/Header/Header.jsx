@@ -53,6 +53,7 @@ const Header = () => {
 		SetIsColumn4Opened(false);
 		SetIsColumn5Opened(false);
 	}
+
 	useEffect(() => {
 		isMenuOpen ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
 	}, [isMenuOpen])

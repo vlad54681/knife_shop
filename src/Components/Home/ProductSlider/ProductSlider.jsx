@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import "../../../iconsfont.css"
-import image from "../../../assets/img/product-card/image.jpg";
 import "./ProductSlider.scss";
 import { useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,7 +9,7 @@ import 'swiper/scss/pagination';
 import { Pagination, Navigation, Autoplay } from "swiper";
 
 
-const ProductSlider = ({ title, subtitle, rating }) => {
+const ProductSlider = ({ title, subtitle, rating, image }) => {
 
 
 	useEffect(() => {

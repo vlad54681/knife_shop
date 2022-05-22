@@ -1,0 +1,61 @@
+@use "sass:math";
+@import "../../Common.scss";
+
+.catalog {
+	&__body {
+		display: grid;
+		grid-template-columns: rem(375) 1fr;
+		gap: rem(30);
+	}
+	&__filter {
+	}
+	&__content {
+		//
+		position: relative;
+		//
+	}
+	&__container {
+	}
+	&__title {
+	}
+	&__control {
+		position: absolute;
+		top: 0;
+		right: 0;
+		//
+		color: rgba(0, 0, 0, 0.5);
+		display: grid;
+		align-items: center;
+		flex-direction: row-reverse;
+		&::before {
+			padding: 0px 0px 0px 2px;
+			transition: transform 0.3s ease 0s;
+			font-size: rem(8);
+			position: absolute;
+			right: rem(15);
+			pointer-events: none;
+		}
+		//
+	}
+	&__products {
+		padding-top: rem(40);
+	}
+}
+._active {
+	&::before {
+		transform: rotate(-180deg);
+	}
+}
+.control {
+	//
+	font-size: rem(16);
+	line-height: math.div(19, 16);
+	color: rgba(0, 0, 0, 0.5);
+	padding: 0px rem(35) 0px rem(15);
+	height: rem(40);
+	cursor: pointer;
+	border: 1px solid rgba(4, 4, 4, 0.3);
+	border-radius: 3px;
+	width: 100%;
+	//
+}

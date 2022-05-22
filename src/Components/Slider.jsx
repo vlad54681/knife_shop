@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "./Home/Home.scss";
+import "./Home/home.scss";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
